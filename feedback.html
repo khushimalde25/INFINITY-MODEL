@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feedbackForm of Waste.Wise.Ways</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e8f5e9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: #fff;
+            margin: 40px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+        }
+
+        button {
+            margin-top: 20px;
+            background: #2e7d32;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #aeb9af;
+        }
+
+        .popup {
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+            background: #2e7d32;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>FeedbackForm for E-waste Management </h2>
+
+    <form id="feedbackForm">
+
+        <label>Your Name</label>
+        <input type="text" id="name">
+
+        <label>Email</label>
+        <input type="email" id="email">
+
+        <label>How will you dispose your e-waste?</label>
+        <select id="method">
+            <option value="">Select one</option>
+            <option>Recycling Center</option>
+            <option>Donation</option>
+            <option>Municipal</option>
+            
+            
+        </select>
+
+        <label>Rate our e-waste program:</label>
+        <select id="rating">
+            <option value="">Select Rating</option>
+            <option value="1">1 - Very Poor</option>
+            <option value="2">2 - Poor</option>
+            <option value="3">3 - Average</option>
+            <option value="4">4 - Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+
+        <label>Additional Feedback</label>
+        <textarea id="feedback" placeholder="write your feedback..."></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+<script>
+    function showSpecial() {
+        alert("Thankyou!Your response has been saved.")
+    }
+    document.getElementById("feedbackForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let method = document.getElementById("method").value;
+        let rating = document.getElementById("rating").value;
+
+        if(!name || !email || !method || !rating){
+            alert("Please fill all fields including rating.");
+            return;
+        }
+
+        document.getElementById("popup").style.display = "block";
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
